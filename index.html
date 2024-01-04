@@ -1,0 +1,26 @@
+<html>
+    <link rel="stylesheet" href="index.css">
+    <body>
+        <script>
+            function totelInterest(){
+                const initialAmount = document.getElementById("initialAmount").value;
+                const rateofinterest = document.getElementById("rateofinterest").value;
+                const time = document.getElementById("time").value;
+                const element = document.getElementById("finalSum")
+                const Interest = (parseInt(initialAmount) * parseInt(rateofinterest) * parseInt(time));
+                element.innerHTML = "Totel Interest: " + Interest.toFixed(2)
+                 
+                
+
+                }
+        </script>
+        <div>
+            <h1>Calculate Rate of Interest</h1>
+        </div>
+        <input id="initialAmount" class="conatiner" placeholder="Initial Amount">
+        <input id="rateofinterest" class="conatiner" placeholder="Rate of Interest">
+        <input id="time" class="conatiner" placeholder="Time in years">
+        <button onclick="totelInterest()">Calculate Interest</button>
+        <div id="finalSum"></div>
+    </body>
+</html>

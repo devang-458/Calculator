@@ -1,0 +1,411 @@
+// const exp = require("constants");
+// const express = require("express");
+// const jwt = require("jsonwebtoken");
+// const jwtPassword = "123456";
+
+// const app = express();
+// app.use(express.json());
+
+// const ALL_USERS = [
+//   {
+//     username: "harkirat@gmail.com",
+//     password: "123",
+//     name: "harkirat singh",
+//   },
+//   {
+//     username: "raman@gmail.com",
+//     password: "123321",
+//     name: "Raman singh",
+//   },
+//   {
+//     username: "priya@gmail.com",
+//     password: "123321",
+//     name: "Priya kumari",
+//   },
+// ];
+
+// function userExists(username, password) {
+//   // write logic to return true or false if this user exists
+//   // in ALL_USERS array
+//   const userExists = false;
+//   for(let i =0 ; i<)
+// }
+
+// app.post("/signin", function (req, res) {
+//   const username = req.body.username;
+//   const password = req.body.password;
+
+//   if (!userExists(username, password)) {
+//     return res.status(403).json({
+//       msg: "User doesnt exist in our in memory db",
+//     });
+//   }
+
+//   var token = jwt.sign({ username: username }, "shhhhh");
+//   return res.json({
+//     token,
+//   });
+// });
+
+// app.get("/users", function (req, res) {
+//   const token = req.headers.authorization;
+//   try {
+//     const decoded = jwt.verify(token, jwtPassword);
+//     const username = decoded.username;
+//     // return a list of users other than this username
+//   } catch (err) {
+//     return res.status(403).json({
+//       msg: "Invalid token",
+//     });
+//   }
+// });
+
+// app.listen(3000)
+
+
+// const express = require("express");
+// const jwt = require("jsonwebtoken");
+// const jwtPassword = "123456";
+
+// const app = express();
+// app.use(express.json());
+
+// const ALL_USERS = [
+//   {
+//     username: "harkirat@gmail.com",
+//     password: "123",
+//     name: "harkirat singh",
+//   },
+//   {
+//     username: "raman@gmail.com",
+//     password: "123321",
+//     name: "Raman singh",
+//   },
+//   {
+//     username: "priya@gmail.com",
+//     password: "123321",
+//     name: "Priya kumari",
+//   },
+// ];
+
+// function userExists(username, password) {
+//   // write logic to return true or false if this user exists
+//   // in ALL_USERS array
+//   // hard todo - try to use the find function in js
+<!-- //   let userExists = false;
+//   for (let i = 0; i<ALL_USERS.length; i++) {
+//     if (ALL_USERS[i].username == username && ALL_USERS[i].password == password) {
+//       userExists = true;
+//     }
+//   }
+//   return userExists;
+// }
+
+// app.post("/signin", function (req, res) {
+//   const username = req.body.username;
+//   const password = req.body.password;
+
+//   if (!userExists(username, password)) {
+//     return res.status(403).json({
+//       msg: "User doesnt exist in our in memory db",
+//     });
+//   }
+
+//   var token = jwt.sign({ username: username }, jwtPassword);
+//   return res.json({
+//     token,
+//   });
+// });
+
+// app.get("/users", function (req, res) {
+//   const token = req.headers.authorization;
+//   const decoded = jwt.verify(token, jwtPassword);
+//   const username = decoded.username;
+//   // return a list of users other than this username
+//   res.json({
+//     users: ALL_USERS.filter(function(value) {
+//       if (value.username == username) {
+//         return false
+//       } else {
+//         return true;
+//       }
+//     })
+//   })
+// });
+
+// app.listen(3000)
+
+
+// const express=  require("express");
+// const fs = require("fs");
+// const app = express();
+
+
+// app.get("/health-checkup",(req,res)=>{ -->
+//   const kidneyId = req.query.kidneyId;
+//   const username = req.headers.username;
+//   const password = req.headers.password;
+
+//   if(username != "devang" || password != "pass"){
+//     res.status(400).json({
+//       "msg": "something is wrong"
+//     })
+//     return;
+//   }
+
+//   if(kidneyId != 1 && kidneyId != 2){
+//     res.status(400).json({
+//       'msg': "Something is wrong"
+//     })
+//     return
+//   }
+
+//   res.json({
+//     msg: "Your kidney is fine"
+//   })
+// });
+
+// app.listen(3000);
+
+
+
+
+// const express = require("express");
+// const fs = require("fs");
+// const app = express();
+
+// let requestCount = 0 ;
+
+// function calculateRequest(req,res,next){
+//   requestCount++;
+//   console.log(requestCount);
+//   next();
+// }
+
+// app.use(calculateRequest)
+// app.use(express.json())
+
+// app.get("/",(req,res)=>{
+//   res.send()
+// })
+
+
+// app.listen(3000, ()=>{
+//   console.log("your server is online")
+// });
+
+
+
+// const express = require("express")
+// const fs = require("fs");
+// const { start } = require("repl");
+// const app = express();
+
+// let requestCount = 0;
+// let totelRequestTime = 0;
+
+// function calculateRequest(req,res,next){
+//   const startTime = new Date();
+
+//   res.on("finish",()=>{
+//     const endTime = new Date();
+//     const elapsedTime = endTime - startTime;
+//     totelRequestTime += elapsedTime;
+
+//     console.log(`Request ${requestCount}: ${elapsedTime}ms`)
+
+//     const avarageTime = totelRequestTime / requestCount;
+//     console.log(`average Time :${avarageTime}`)
+//   });
+
+//   requestCount++
+//   next();
+// }
+
+// app.use(calculateRequest);
+// app.use(express.json())
+
+// app.get("/",(req,res)=>{
+//   res.json({
+//     msg: "something wrong with this code"
+//   })
+// })
+
+// app.listen(3000,()=>[
+//   console.log("Your server is online")
+// ])
+
+
+// const express = require("express");
+// const fs = require("fs");
+// const app = express();
+
+// let requestCount = 0;
+// let TotelRequesttime = 0;
+
+// function calculateRequest(req,res,next){
+//   const startTime = new Date();
+
+//   res.on("finish",()=>{
+//     const endTime = new Date();
+//     const elapsedTime = endTime - startTime 
+//     TotelRequesttime += elapsedTime
+
+//     console.log(`Totel Request ${requestCount}: ${elapsedTime}ms`)
+//     const averageTime = TotelRequesttime / requestCount;
+//     console.log(`Average time:${averageTime} ms`)
+//   });
+//   requestCount++
+//   next();
+// }
+
+// app.use(calculateRequest)
+// app.use(express.json());
+
+// app.get("/",(req,res)=>[
+//   res.json({
+//     msg:"Something Wring with this input"
+//   })
+// ])
+
+// app.listen(3000,()=>{
+//   console.log("Your server is online")
+// })
+
+
+// const express = require("express");
+// const zod = require("zod")
+// const schema = zod.array(zod.number());
+// const app = express();
+
+// app.use(express.json())
+
+// app.get("/health-checkup",(req,res)=>{
+//   const kidneyId = req.body.kidney
+//   const respone =  schema.safeParse(kidney)
+//   if(!respone.success){
+//     res.status(411).json({
+//       msg: "input is invalid"
+//     })
+//   }else{
+//     res.send(
+//       respone
+//     )
+//   }
+// })
+
+// app.listen(3000);
+////////////////////////////////////////////////////////
+
+// const zod =  require("zod");
+
+// function validateInput(arr){
+//   const schema = zod.array(zod.number())
+//   const respone = schema.safeParse(arr);
+//   console.log(respone);
+// }
+
+// validateInput(1,2,3);
+
+////////////////////////////////////////////////////////
+
+// const express = require("express");
+// const app = express();
+// const zod = require("zod");
+
+// function validateInput(obj){
+//   const schema = zod.object({
+//     email: zod.string().email(),
+//     password: zod.string().min(8)
+//   })
+//   const response = schema.safeParse(obj)
+//   console.log(response)
+// }
+
+// app.post("/login",(req,res)=>{
+//   const response = validateInput(req.body);
+//   if(!response.success){
+//     res.json({
+//       msg: "Your inputs are Invaild"
+//     })
+//     return;
+//   }
+// })
+
+// app.listen(3000)
+
+
+
+// const express = require("express");
+// const app = express();
+
+// function isOldEnoughMiddleware(req,res,next){
+//   if(age >= 14){
+//     next();
+//   }else{
+//     req.json({
+//       msg: "sorry but you can't access this ride"
+//     })
+//   }
+//   }
+
+// app.get("/ride1",(req,res)=>{
+//   if(isOldEnoughMiddleware(req.query.age)){
+//     res.json({
+//       msg: "You Have succesfully riden the ride"
+//     })
+//   }else{
+//     res.status(411).json({
+//       msg: "sorry but you can't access this ride"
+//     })
+//   }
+// })
+
+// app.listen(3000);
+
+<!DOCTYPE html>
+<html>
+<body>
+  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+
+  <div id="container">
+
+  </div>
+  <script>
+    function createChild(title, description, id) {
+      const child = document.createElement("div");
+      const firstGrandParent = document.createElement("div");
+      firstGrandParent.innerHTML = title;
+      const secondGrandParent = document.createElement("div");
+      secondGrandParent.innerHTML = description;
+      const thirdGrandParent = document.createElement("button");
+      thirdGrandParent.innerHTML = "Mark as done";
+      thirdGrandParent.setAttribute("onclick", `markAsDone(${id})`);
+      child.appendChild(firstGrandParent);
+      child.appendChild(secondGrandParent);
+      child.appendChild(thirdGrandParent)
+      child.setAttribute("id", id);
+      return child;
+    }
+    // State will always be an array
+    // Every element of state would have a title, description and id
+    //
+    //
+    function updateDomAccToState(state) {
+        const parent = document.getElementById("container");
+        parent.innerHTML = "";
+        for (let i = 0; i<state.length; i++) {
+            const child = createChild(state[i].title, state[i].description, state[i].id);
+            parent.appendChild(child);
+        }
+    }
+    window.setInterval(async function() {
+        const res = await fetch("https://sum-server.100xdevs.com/todos")
+        const json = await res.json();
+        updateDomAccToState(json.todos)
+    }, 5000)
+  </script>
+</body>
+
+</html>
